@@ -1,0 +1,27 @@
+{
+	"name": "Chess Analytics",
+	"description": "A Chrome Extension for Chess.com game analytics.",
+	"version": "0.1",
+	"permissions": [ "scripting" ],
+	"manifest_version": 3,
+	"content_scripts": [
+		{
+			"matches": [ "https://www.chess.com/game/live/" ],
+			"js": [ "libs/jquery.min.js", "index.js" ],
+			"css": [ "styles.css" ]
+		}
+	],
+	"web_accessible_resources": [
+		{
+			"resources": [ "src/*" ],
+			"matches": [ "https://www.chess.com/game/live/" ]
+		}
+	],
+	"action": {
+		"default_popup": "src/popups/index.html"
+	},
+	"minimum_chrome_version": "92",
+	"content_security_policy": {
+		"script-src": "self"
+	}
+}
